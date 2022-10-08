@@ -1,0 +1,207 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{setting.title}}</title>
+    <link rel="shortcut icon" href="{{setting.logo_site.url}}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body class="bg">
+    <header>
+    <div class="header">
+        <div class="container">
+            <div class="header_inner">
+            <div class="logo">
+                <img src="{{setting.logo_site.url}}" alt="" class="logo">
+            </div>
+            <div>
+                <span id="brg" class="burger_menu"><span></span></span>
+                <div id="nav_bar123" class="nav_bar123">
+                <ul id="nav" class="nav ">
+                    <li class="nav-item"><a href="{%url 'index' %}" class="nav-link">Главная</a></li>
+                    <li class="nav-item"><a href="{%url 'about_us' %}" class="nav-link">О нас</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{%url 'changer' %}" class="nav-link">Обмен</a></li>
+                    <li class="nav-item"><a href="{%url 'logout' %}" class="nav-link">Выйти</a></li>
+                    {% else %}
+
+                    <li class="nav-item"><a href="{%url 'login' %}" class="nav-link">Войти</a></li>
+                    <li class="nav-item"><a href="{%url 'register' %}" class="nav-link">Зарегестрироваться</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </header>
+    <section class="top">
+        <div class="container">
+        <div class="top_inner">
+            <div class="info">
+                <h1 class="title">Выгодный обмен криптавалют</h1>
+                <p class="par">Благодаря сервису CAPSTUN CHANGER вы можете совершать покупки, продажу и обмен валют с минимальной комиссией</p>
+                <div class="btn"><a href="{%url 'changer' %}" class="link_btn">Обмен</a></div>
+            </div>
+            <img src="{% static 'images/logo.png'%}" alt="" class="top_image">
+        </div>
+    </div>
+    </section>
+    <section class="btns">
+        <div class="container">
+        <div class="btns_inner">
+            <div class="col-lg-5">
+                <div class="col_top">
+                    <img src="{% static 'images/btc.png'%}" alt="" class="col_img">
+                    <p class="col_ttl">Bitcoin</p>
+                </div>
+                <div class="col_bottom">
+                    <p class="col_text">Обьем:<span>{{setting.cript_1}}</span></p>                    
+                    <p class="col_text">Резерв:<span>{{setting.rez_1}}</span></p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="col_top">
+                    <img src="{% static 'images/eth.png'%}" alt="" class="col_img">
+                    <p class="col_ttl">Ethereum</p>
+                </div>
+                <div class="col_bottom">
+                    <p class="col_text">Обьем:<span>{{setting.cript_2}}</span></p>                    
+                    <p class="col_text">Резерв:<span>{{setting.rez_2}}</span></p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="col_top">
+                    <img src="{% static 'images/litecoin.svg'%}" alt="" class="col_img">
+                    <p class="col_ttl">Litecoin</p>
+                </div>
+                <div class="col_bottom">
+                    <p class="col_text">Обьем:<span>{{setting.cript_3}}</span></p>                    
+                    <p class="col_text">Резерв:<span>{{setting.rez_3}}</span></p>
+                </div>
+            </div>
+        </div>  
+    </div>
+    </section>
+    <section>
+        <div class="container">
+        <div class="inner">
+            <div class="left-side">
+                <h2 class="title">Мы сотрудничаем с Binance и <br> Trust Wallet</h2>
+                <p>Наш сервис создан при поддержке Binance и Trust Wallet. Поэтему, доверяя этим крупным компаниям, вы автоматически доверяете нам. А мы сделаем всё чтобы ваша вера оправдалась.</p>
+                <div class="btn"><a href="{%url 'changer' %}" class="link_btn">Обмен</a></div>
+            </div>
+            <div class="right-side">
+                <img src="{{setting.logo_site.url}}" alt="">
+            </div>
+        </div>
+        <div class="bottom">
+            <h2 class="item">Mastercard</h2>
+            <h2 class="item">VISA</h2>
+            <h2 class="item">PAYEER</h2>
+            <h2 class="item">ADVCASH</h2>
+            <h2 class="item">QIWI</h2>
+        </div>
+    </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="btns_inner2">
+                <div class="col-lg-5">
+                    <div class="col_top">
+                        <img src="{{images.logo1.url}}" alt="" class="col_img">
+                        <p>Наши мгновенные транзакции помогут быстро вывести прибыль на любой предоставленный платёжный метод</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="col_top">
+                        <img src="{{images.logo2.url}}" alt="" class="col_img">
+                        <p>Мы гарантируем поступление средств, при условии соблюдения правил обмена сервиса</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="col_top">
+                        <img src="{{images.logo3.url}}" alt="" class="col_img">
+                        <p>Всегда актуальные и выгодные курсы обмена ведущих мировых бирж</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="col_top">
+                        <img src="{{images.logo4.url}}" alt="" class="col_img">
+                        <p>В любое время вы можете связаться с нами и в течении 1-3 часов мы дадим вам ответ</p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2 class="title_stat">Статистика за 24 часа</h2>
+            <div class="row">
+                <div class="col_md-2">
+                    <img src="{% static 'images/btc.png'%}" alt="">
+                    <p><span>$2 104 432</span> Обьем торгов за день</p>
+                </div>
+                <div class="col_md-2">
+                    <img src="{% static 'images/btc.png'%}" alt="">
+                    <p><span>BTC-ETH</span>Больше всего обменов</p>
+                </div>
+                <div class="col_md-2">
+                    <img src="{% static 'images/btc.png'%}" alt="">
+                    <p><span>15 501</span> посещений сегодня</p>
+                </div>
+                <div class="col_md-2">
+                    <img src="{% static 'images/btc.png'%}" alt="">
+                    <p><span>4460</span> количество транзакций</p>
+                </div>
+                <div class="col_md-2">
+                    <img src="{% static 'images/btc.png'%}" alt="">
+                    <p><span>450</span>Новых пользователей</p>
+                </div>
+                <div class="col_md-2">
+                    <img src="{% static 'images/btc.png'%}" alt="">
+                    <p><span>2350</span>Постоянных пользователей</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+        <div class="row">
+            <div class="ft_col">
+                <h3>Основные</h3>
+                <div class="df">
+                    <a href="{%url 'index' %}">Главная</a>
+                    <a href="{%url 'about_us' %}">О нас</a>
+                </div>
+            </div>
+            <div class="ft_col">
+                <h3>Профиль</h3>
+                <div class="df">
+                    <a href="{%url 'login' %}">Вход</a>
+                    <a href="{%url 'register' %}">Регистрация</a>
+                </div>
+            </div>
+            <div class="ft_col">
+                <h3>Контакты</h3>
+                <div class="df">
+                    <a href="">info@Capstun-changer.com</a>
+                    <a href="">Техподержка</a>
+                </div>
+            </div>
+            <div class="ft_col">
+                <h3>Время работы</h3>
+                <div class="df">
+                    <p href="">24/7</p>
+                    <p href="">Техподержка работает с 9:00 до 24:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

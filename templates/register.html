@@ -1,0 +1,90 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{setting.title}}</title>
+    <link rel="shortcut icon" href="{{setting.logo_site.url}}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body class="bg">
+    <header>
+    <div class="header">
+        <div class="container">
+            <div class="header_inner">
+            <div class="logo">
+                <img src="{{setting.logo_site.url}}" alt="" class="logo">
+            </div>
+            <div>
+                <span id="brg" class="burger_menu"><span></span></span>
+                <div id="nav_bar123" class="nav_bar123">
+                <ul id="nav" class="nav ">
+                    <li class="nav-item"><a href="{%url 'index' %}" class="nav-link">Главная</a></li>
+                    <li class="nav-item"><a href="{%url 'about_us' %}" class="nav-link">О нас</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{%url 'changer' %}" class="nav-link">Обмен</a></li>
+                    <li class="nav-item"><a href="{%url 'logout' %}" class="nav-link">Выйти</a></li>
+                    {% else %}
+
+                    <li class="nav-item"><a href="{%url 'login' %}" class="nav-link">Войти</a></li>
+                    <li class="nav-item"><a href="{%url 'register' %}" class="nav-link">Зарегестрироваться</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </header>
+<section>
+ <div class="container">
+    <form action="" method="POST" class="register_form">
+        {% csrf_token %}
+        <input type="text" name="username" class="reg_input" placeholder="Email или номер телефона" value>
+        <input type="password" name="password" class="reg_input" placeholder="Пароль" value>
+        <input type="password" name="confirm_password" class="reg_input" placeholder="Подтвердите пароль" value>
+        <button class="reg_btn">Зарегестрироваться</button>
+    </form>
+ </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+    <div class="row">
+        <div class="ft_col">
+            <h3>Основные</h3>
+            <div class="df">
+                <a href="{%url 'index' %}">Главная</a>
+                <a href="{%url 'about_us' %}">О нас</a>
+            </div>
+        </div>
+        <div class="ft_col">
+            <h3>Профиль</h3>
+            <div class="df">
+                <a href="{%url 'login' %}">Вход</a>
+                <a href="{%url 'register' %}">Регистрация</a>
+            </div>
+        </div>
+        <div class="ft_col">
+            <h3>Контакты</h3>
+            <div class="df">
+                <a href="">info@Capstun-changer.com</a>
+                <a href="">Техподержка</a>
+            </div>
+        </div>
+        <div class="ft_col">
+            <h3>Время работы</h3>
+            <div class="df">
+                <p href="">24/7</p>
+                <p href="">Техподержка работает с 9:00 до 24:00</p>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>
